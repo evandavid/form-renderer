@@ -1,0 +1,12 @@
+<label builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<br />
+<input
+  id="{{item.id}}"
+  type="file"
+  name="{{item.fieldName}}"
+  builder-model="data.data[item.id]"
+  placeholder="{{item.placeholder}}"
+  data-parsley-excluded="false"
+  data-parsley-trigger="change"
+  builder-validations validations="item" />
+<div id="error-for-{{item.id}}"></div>

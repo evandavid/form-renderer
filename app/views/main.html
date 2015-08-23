@@ -1,0 +1,20 @@
+<div class="sixteen wide column">
+  <div class="ui grid">
+    <div class="eight wide column">
+      <div class="ui stacked segment">
+        <h3>Rendered form</h3>
+        <div class="ui divider"></div>
+        <form class="ui form"  parsley-validate>
+          <div id="forms" builder data="data"></div>
+        </form>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <div class="ui stacked segment">
+        <h3>JSON data</h3>
+        <div class="ui divider"></div>
+        <json-tree object="data" start-expanded="true"></json-tree>
+      </div>
+    </div>
+  </div>
+</div>

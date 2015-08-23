@@ -1,0 +1,23 @@
+<label builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<div ng-repeat="option in item.options" class="field" ng-if="item.optionLabels">
+  <div class="ui radio checkbox">
+    <input  type="radio"
+      id="{{item.id}}-{{$index}}"
+      name="{{item.fieldName}}"
+      ng-model="data.data[item.id]"
+      builder-validations validations="item" value="{{option}}"/>
+    <label for="{{item.id}}-{{$index}}">{{item.optionLabels[$index]}}</label>
+  </div>
+</div>
+
+<div ng-repeat="option in item.options" class="field" ng-if="!item.optionLabels">
+  <div class="ui radio checkbox">
+    <input  type="radio"
+      id="{{item.id}}-{{$index}}"
+      name="{{item.fieldName}}"
+      ng-model="data.data[item.id]"
+      builder-validations validations="item" value="{{option}}"/>
+    <label for="{{item.id}}-{{$index}}">{{option}}</label>
+  </div>
+</div>
+<div id="error-for-{{item.id}}"></div>

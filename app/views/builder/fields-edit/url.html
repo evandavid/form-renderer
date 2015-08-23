@@ -1,0 +1,13 @@
+<label builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<!-- <input
+  id="{{item.id}}"
+  type="text"
+  name="{{item.fieldName}}"
+  ng-model="data.data[item.id]"
+  placeholder="{{item.placeholder}}"
+  data-parsley-pattern="a/^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/i"
+  data-parsley-pattern-message="This value is not a valid url"
+  builder-validations validations="item" />
+<div id="error-for-{{item.id}}"></div> -->
+<br />
+<a href="{{data.data[item.id]}}">{{item.label}}</a>

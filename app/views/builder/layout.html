@@ -1,0 +1,11 @@
+<h3>{{data.schema.title}}</h3>
+<div class="field" ng-repeat="item in data.schema.fields">
+  <div
+    ng-if="data.view !== 'display'"
+    ng-include="'views/builder/fields-edit/'+item.type+'.html'"
+    onload="item = item"></div>
+  <div
+    ng-if="data.view === 'display'"
+    ng-include="'views/builder/fields-display/'+item.type+'.html'"
+    onload="item = item"></div>
+</div>

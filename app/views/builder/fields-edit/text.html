@@ -1,0 +1,9 @@
+<label builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<input
+  id="{{item.id}}"
+  type="text"
+  name="{{item.fieldName}}"
+  ng-model="data.data[item.id]"
+  placeholder="{{item.placeholder}}"
+  builder-validations validations="item" />
+<div id="error-for-{{item.id}}"></div>
