@@ -1,0 +1,25 @@
+<div id="{{page.id}}" class="{{page.html.className}}" style="{{page.html.style}}">
+  <div ng-repeat="content in page.contents">
+    <div id="{{content.id}}" ng-if="content.type !== 'url' && content.type !== 'button'"
+      ng-include="'views/builder/fields-display/'+content.type+'.html'"
+      onload="content = content; data = data">
+    </div>
+
+    <!-- handle link download separately -->
+    <div id="{{content.id}}" ng-if="content.type === 'url' && page.downloadRequired"
+      ng-include="'views/builder/fields-display/'+content.type+'.html'"
+      onload="content = content; data = data">
+    </div>
+
+    <!-- handle link accept separately -->
+    <div id="{{content.id}}" ng-if="content.type === 'button' && page.acceptRequired"
+      ng-include="'views/builder/fields-display/'+content.type+'.html'"
+      onload="content = content; data = data">
+    </div>
+  </div>
+  <div ng-repeat="page in page.subPages">
+    <div
+      ng-include="'views/builder/pages/'+page.type+'.html'"
+      onload="page = page; data = holderData.data[page.id]"></div>
+  </div>
+</div>

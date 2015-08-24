@@ -18,4 +18,10 @@ App
         controller: 'MainCtrl'
       })
 
+      .state('app.display', {
+        url: '/display',
+        templateUrl: 'views/display.html',
+        controller: 'DisplayCtrl'
+      })
+
   });

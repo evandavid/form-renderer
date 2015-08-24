@@ -1,0 +1,5 @@
+<div ng-repeat="item in holderData.schema.pages">
+  <div
+    ng-include="'views/builder/pages/'+item.type+'.html'"
+    onload="page = item; data = holderData.data[item.id]"></div>
+</div>
