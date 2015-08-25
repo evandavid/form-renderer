@@ -1,0 +1,10 @@
+<div id="{{page.id}}" class="{{page.html.className}}" style="{{page.html.style}}">
+  <div ng-repeat="page in page.subPages" id="steps-{{$index}}" ng-class="{hide: $index !== 0}">
+    <div
+      ng-include="'views/builder/pages/'+page.type+'.html'"
+      onload="page = page; data = holderData.data[page.id]"></div>
+    <div class="ui divider"></div>
+    <button ng-if="$index !== 0" prev-step class="ui button red">Prev</button>
+    <button ng-if="!$last" next-step class="ui button red">Next</button>
+  </div>
+</div>

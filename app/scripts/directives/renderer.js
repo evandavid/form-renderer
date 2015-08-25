@@ -5,6 +5,14 @@ App
       scope: { data: '='},
       templateUrl: 'views/builder/renderer.html',
       controller: function($scope){
+        // var vm = this;
+
+        // vm.next = function(index){
+        //   console.log($scope.currentStep);
+        //   $scope.currentStep = index + 1;
+        //   console.log($scope.currentStep);
+        // };
+
         // create holderVariabel
         $scope.holderData = angular.copy($scope.data);
 
@@ -55,6 +63,30 @@ App
         html += scope.data.contents[scope.content.id];
         html += '</div>';
         elem.replaceWith(html);
+      }
+    };
+  })
+  .directive('nextStep', function(){
+    return {
+      restrict: 'A',
+      link: function(scope, elem){
+        elem.bind('click', function(){
+          jQuery(elem).parent().siblings().addClass('hide');
+          jQuery(elem).parent().addClass('hide');
+          jQuery(elem).parent().next().removeClass('hide');
+        });
+      }
+    };
+  })
+  .directive('prevStep', function(){
+    return {
+      restrict: 'A',
+      link: function(scope, elem){
+        elem.bind('click', function(){
+          jQuery(elem).parent().siblings().addClass('hide');
+          jQuery(elem).parent().addClass('hide');
+          jQuery(elem).parent().prev().removeClass('hide');
+        });
       }
     };
   });

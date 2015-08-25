@@ -1,0 +1,7 @@
+<div id="{{page.id}}" class="{{page.html.className}}" style="{{page.html.style}}">
+  <div ng-repeat="page in page.subPages">
+    <div
+      ng-include="'views/builder/pages/'+page.type+'.html'"
+      onload="page = page; data = holderData.data[page.id]"></div>
+  </div>
+</div>

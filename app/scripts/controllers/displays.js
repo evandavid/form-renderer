@@ -13,71 +13,150 @@ angular.module('frontendApp')
       'schema': {
         'pages': [{
           'id': '234-1234-12345',
-          'type': 'generic',
+          'type': 'steps',
           'html': {
             'className': '',
             'style': ''
           },
-          'contents': [{
-            'id': '4567-4354-2343',
-            'label': 'Title',
-            'type': 'label',
-            'elementType': 'h3',
-            'html': {
-              'className': '',
-              'style': 'margin-bottom: 20px;'
-            }
-          }, {
-            'id': '23435-23455-34434',
-            'label': 'Body',
-            'type': 'textarea',
-            'html': {
-              'className': '',
-              'style': ''
-            }
-          }],
           'subPages': [{
-            'id': '567-2323453-455656',
-            'type': 'disclosure',
-            'downloadRequired': true,
-            'acceptRequired': true,
-            'html': {
-              'className': '',
-              'style': 'margin-top: 20px;'
-            },
-            'contents': [{
-              'id': '4567-4354-23436',
-              'label': 'Title',
-              'type': 'label',
-              'elementType': 'h3',
+            'id': '1234335-3443534-456',
+            'type': 'blank',
+            'subPages': [{
+              'id': '234-1234-12345',
+              'type': 'generic',
+              'contents': [{
+                'id': '4567-4354-2343',
+                'label': 'Title',
+                'type': 'label',
+                'elementType': 'h3',
+                'html': {
+                  'className': '',
+                  'style': 'margin-bottom: 20px;'
+                }
+              }, {
+                'id': '23435-23455-34434',
+                'label': 'Body',
+                'type': 'textarea',
+                'html': {
+                  'className': '',
+                  'style': ''
+                }
+              }]
+            },{
+              'id': '567-2323453-455656',
+              'type': 'disclosure',
+              'downloadRequired': true,
+              'acceptRequired': true,
               'html': {
                 'className': '',
-                'style': 'margin-bottom:20px;'
-              }
-            }, {
-              'id': '23435-23455-34434445',
-              'label': 'Body',
-              'type': 'textarea',
+                'style': 'margin-top: 20px;'
+              },
+              'contents': [{
+                'id': '4567-4354-23436',
+                'label': 'Title',
+                'type': 'label',
+                'elementType': 'h3',
+                'html': {
+                  'className': '',
+                  'style': 'margin-bottom:20px;'
+                }
+              }, {
+                'id': '23435-23455-34434445',
+                'label': 'Body',
+                'type': 'textarea',
+                'html': {
+                  'className': '',
+                  'style': ''
+                }
+              }, {
+                'id': '23435-23455-344565768',
+                'label': 'Download PDF',
+                'type': 'url',
+                'html': {
+                  'className': '',
+                  'style': ''
+                }
+              }, {
+                'id': '23435-23455-3456546',
+                'label': 'I HAVE READ THE DISCLOSURE CAREFULLY',
+                'type': 'button',
+                'html': {
+                  'className': 'ui button blue',
+                  'style': ''
+                }
+              }]
+            }]
+          },{
+            'id': '1234335-3443534-456',
+            'type': 'blank',
+            'subPages': [{
+              'id': '567-2323453-455656',
+              'type': 'disclosure',
+              'downloadRequired': true,
+              'acceptRequired': true,
               'html': {
                 'className': '',
-                'style': ''
-              }
-            }, {
-              'id': '23435-23455-344565768',
-              'label': 'Download PDF',
-              'type': 'url',
-              'html': {
-                'className': '',
-                'style': ''
-              }
-            }, {
-              'id': '23435-23455-3456546',
-              'label': 'I HAVE READ THE DISCLOSURE CAREFULLY',
-              'type': 'button',
-              'html': {
-                'className': 'ui button blue',
-                'style': ''
-              }
+                'style': 'margin-top: 20px;'
+              },
+              'contents': [{
+                'id': '4567-4354-23436',
+                'label': 'Title',
+                'type': 'label',
+                'elementType': 'h3',
+                'html': {
+                  'className': '',
+                  'style': 'margin-bottom:20px;'
+                }
+              }, {
+                'id': '23435-23455-34434445',
+                'label': 'Body',
+                'type': 'textarea',
+                'html': {
+                  'className': '',
+                  'style': ''
+                }
+              }, {
+                'id': '23435-23455-344565768',
+                'label': 'Download PDF',
+                'type': 'url',
+                'html': {
+                  'className': '',
+                  'style': ''
+                }
+              }, {
+                'id': '23435-23455-3456546',
+                'label': 'I HAVE READ THE DISCLOSURE CAREFULLY',
+                'type': 'button',
+                'html': {
+                  'className': 'ui button blue',
+                  'style': ''
+                }
+              }]
+            }]
+          }, {
+            'id': '1234335-3443534-456',
+            'type': 'blank',
+            'subPages': [{
+              'id': '234-1234-12345',
+              'type': 'generic',
+              'contents': [{
+                'id': '4567-4354-2343',
+                'label': 'Title',
+                'type': 'label',
+                'elementType': 'h3',
+                'html': {
+                  'className': '',
+                  'style': 'margin-bottom: 20px;'
+                }
+              }, {
+                'id': '23435-23455-34434',
+                'label': 'Body',
+                'type': 'textarea',
+                'html': {
+                  'className': '',
+                  'style': ''
+                }
+              }]
             }]
           }]
         }]
