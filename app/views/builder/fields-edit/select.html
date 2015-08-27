@@ -1,8 +1,10 @@
-<label builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="!item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.headerText}}</label>
+
 <select
   id="{{item.id}}"
   name="{{item.fieldName}}"
-  ng-model="data.data[item.id]"
+  ng-model="item.value"
   builder-validations validations="item" >
   <option ng-if="item.optionLabels" ng-repeat="option in item.options" value="{{option}}">{{item.optionLabels[$index]}}</option>
 

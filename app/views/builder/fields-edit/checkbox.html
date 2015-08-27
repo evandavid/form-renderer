@@ -1,10 +1,12 @@
-<label builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="!item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.headerText}}</label>
+
 <div ng-repeat="option in item.options" class="field" ng-if="item.optionLabels">
   <div class="ui checkbox">
     <input  type="checkbox"
       id="{{item.id}}-{{$index}}"
       name="{{item.fieldName}}"
-      checklist-model="data.data[item.id]"
+      checklist-model="item.value"
       checklist-value="option"
       builder-validations validations="item" value="{{option}}"/>
     <label for="{{item.id}}-{{$index}}">{{item.optionLabels[$index]}}</label>
@@ -16,7 +18,7 @@
     <input  type="checkbox"
       id="{{item.id}}-{{$index}}"
       name="{{item.fieldName}}"
-      checklist-model="data.data[item.id]"
+      checklist-model="item.value"
       checklist-value="option"
       builder-validations validations="item" value="{{option}}"/>
     <label for="{{item.id}}-{{$index}}">{{option}}</label>

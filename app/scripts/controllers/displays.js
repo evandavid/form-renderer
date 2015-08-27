@@ -8,7 +8,123 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('DisplayCtrl', function ($scope) {
+  .controller('DisplayCtrl', function ($scope, UUID) {
+
+    // simulate server data
+    $scope.serverData = {
+      pages: [
+        {
+          id: UUID.generate(),
+          title: 'Page 1',
+          cssFile: '',
+          customJS: 'console.log("test");',
+          showNext: true,
+          showPrevious: false,
+          showSubmit: false,
+          help: '',
+          panels: [
+            {
+              id: UUID.generate(),
+              cssClass: '',
+              headerText: '',
+              footerText: '',
+              fields: [
+                {
+                  id: UUID.generate(),
+                  name: 'disclosure',
+                  type: 'disclosure',
+                  view: 'display',
+                  headerText: 'Disclosure(s)',
+                  footerText: '',
+                  cssClass: '',
+                  body: '<p><b>You have been determined to be eligible to apply for SimpleFi\'s Education Debt Refinancing Program</b></p><p> <b> SimpleFi’s Graduate Education Debt Refinancing Program is offered through The Bank &amp; Trust of Bryan/College Station </b>, a Texas state-chartered bank located in Bryan, Texas (herein called “TB&amp;T”). In connection with this program, SimpleFi performs marketing and provides origination services using underwriting and other criteria approved by TB&amp;T, and contracts with ECMC Servicing Corporation to provide ongoing loan servicing.  If you apply for a private student loan with TB&amp;T through this program, SimpleFi, as TB&amp;T’s originating agent, will receive your completed loan application, including required verifications, obtain a credit report as authorized by you, and will perform certain underwriting activities on behalf of TB&amp;T. If you satisfy the necessary credit and other eligibility requirements for loan approval, TB&amp;T will fund your loan. Although TB&amp;T will be the lender and owner of your loan, all borrower contact will be conducted by SimpleFi and, subsequent to disbursement, by SimpleFi or ECMC Servicing. </p><br><p> In the event that TB&amp;T subsequently sells your loan to a third party, TB&amp;T may disclose and/or transfer your information as part of the transaction. The purchaser of your loan may use your information pursuant to its own privacy policies, and those policies may be different from the privacy policies of TB&amp;T. In the event of any sale of your loan, SimpleFi or its subservicer may continue to service your loan. At that time, however, you will be notified of the transfer and provided with instructions regarding any changes in the process for making payments. </p>',
+                  customFile: '',
+                  downloadLabel: 'Download PDF',
+                  acceptanceLabel: 'I HAVE READ THE DISCLOSURE CAREFULLY',
+                  read: false,
+                  showAcceptance: true,
+                  showDownload: true
+                }
+              ]
+            }
+          ]
+        }, {
+          id: UUID.generate(),
+          title: 'Page 2',
+          cssFile: '',
+          showNext: false,
+          showPrevious: false,
+          showSubmit: true,
+          help: '',
+          panels: [
+            {
+              id: UUID.generate(),
+              cssClass: '',
+              headerText: '',
+              footerText: '',
+              fields: [
+                {
+                  id: UUID.generate(),
+                  name: 'firstName',
+                  type: 'text',
+                  placeholder: 'First Name',
+                  view: 'edit',
+                  headerText: 'Name',
+                  footerText: '',
+                  cssClass: '',
+                  value: '',
+                }, {
+                  id: UUID.generate(),
+                  name: 'middleName',
+                  type: 'text',
+                  placeholder: 'Middle Name',
+                  view: 'edit',
+                  headerText: '',
+                  footerText: '',
+                  cssClass: '',
+                  value: '',
+                }, {
+                  id: UUID.generate(),
+                  name: 'lastName',
+                  type: 'text',
+                  placeholder: 'Last Name',
+                  view: 'edit',
+                  headerText: '',
+                  footerText: '',
+                  cssClass: '',
+                  value: '',
+                }, {
+                  id: UUID.generate(),
+                  name: 'dob',
+                  type: 'text',
+                  view: 'edit',
+                  headerText: 'Date of birth',
+                  footerText: '',
+                  cssClass: 'pikaday',
+                  value: '',
+                }, {
+                  id: UUID.generate(),
+                  name: 'sameAsPermanent',
+                  type: 'radio',
+                  view: 'edit',
+                  headerText: 'Address same as permanent',
+                  options: ['Yes', 'No'],
+                  footerText: '',
+                  cssClass: '',
+                  value: '',
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    // simulate first page
+    $scope.page = $scope.serverData.pages[1];
+
+
+
     $scope.data = {
       'schema': {
         'pages': [{

@@ -32,6 +32,8 @@ module.exports = function(config) {
       'bower_components/checklist-model/checklist-model.js',
       'bower_components/parsleyjs/dist/parsley.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/pikaday/pikaday.js',
+      'bower_components/moment/moment.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

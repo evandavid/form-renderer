@@ -1,10 +1,11 @@
-<label builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="!item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.headerText}}</label>
 <br />
 <input
   id="{{item.id}}"
   type="file"
   name="{{item.fieldName}}"
-  builder-model="data.data[item.id]"
+  builder-model="item.value"
   placeholder="{{item.placeholder}}"
   data-parsley-excluded="false"
   data-parsley-trigger="change"

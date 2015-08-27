@@ -1,8 +1,10 @@
-<label builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="!item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.headerText}}</label>
+
 <textarea
   id="{{item.id}}"
   name="{{item.fieldName}}"
-  ng-model="data.data[item.id]"
+  ng-model="item.value"
   placeholder="{{item.placeholder}}"
   builder-validations validations="item" ></textarea>
 <div id="error-for-{{item.id}}"></div>

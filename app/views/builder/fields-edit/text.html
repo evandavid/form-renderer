@@ -1,9 +1,12 @@
-<label builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="!item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.label}}</label>
+<label ng-if="item.headerText" builder-label-required data="item" for="{{item.id}}">{{item.headerText}}</label>
+
 <input
+  class="{{item.cssClass}}"
   id="{{item.id}}"
   type="text"
   name="{{item.fieldName}}"
-  ng-model="data.data[item.id]"
+  ng-model="item.value"
   placeholder="{{item.placeholder}}"
   builder-validations validations="item" />
 <div id="error-for-{{item.id}}"></div>

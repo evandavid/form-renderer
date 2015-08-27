@@ -1,0 +1,32 @@
+<div>
+  <!-- change page title -->
+  <div change-title="{{data.title}}"></div>
+
+  <!-- Custom file js and css  -->
+  <link rel="stylesheet" type="text/css" href="{{data.cssFile}}" ng-if="data.cssFile !== ''">
+  <script type="text/javascript-lazy" ng-if="data.customJS !== ''" script="data.customJS"></script>
+
+  <!-- panels -->
+  <div ng-repeat="panel in data.panels">
+    <div class="{{panel.cssClass}}" id="panel-{{panel.id}}">
+      <h2 ng-if="panel.headerText !== ''">{{panel.headerText}}</h2>
+
+      <!-- fields -->
+      <form class="ui form" parsley-validate>
+        <div ng-repeat="field in panel.fields" class="field">
+          <div id="field-{{field.id}}"
+            ng-include="'views/builder/fields-'+field.view+'/'+field.type+'.html'"
+            onload="item = field">
+          </div>
+        </div>
+      </form>
+
+      <h3 ng-if="panel.footerText !== ''">{{panel.footerText}}</h3>
+    </div>
+  </div>
+
+  <div class="ui divider"></div>
+  <button ng-if="data.showPrevious" class="ui button red" ng-click="vm.prev()">Previous</button>
+  <button ng-if="data.showNext" class="ui button red" ng-click="vm.next()">Next</button>
+  <button ng-if="data.showSubmit" class="ui button red" ng-click="vm.submit()">Submit</button>
+</div>

@@ -3,36 +3,24 @@ App
     return {
       restrict: 'A',
       scope: { data: '='},
-      templateUrl: 'views/builder/renderer.html',
+      templateUrl: 'views/builder/page.html',
       controller: function($scope){
-        // var vm = this;
-
-        // vm.next = function(index){
-        //   console.log($scope.currentStep);
-        //   $scope.currentStep = index + 1;
-        //   console.log($scope.currentStep);
+        console.log($scope.data)
+        // transform data to key value pair object
+        // var transformData = function(data){
+        //   var holder = {};
+        //   $.each(data, function(key, value){
+        //     var obj = {};
+        //     obj[value.contentId] =  value.value;
+        //     angular.extend(holder,obj);
+        //   });
+        //   return holder;
         // };
 
-        // create holderVariabel
-        $scope.holderData = angular.copy($scope.data);
-
-        // transform data to key value pair object
-        var transformData = function(data){
-          var holder = {};
-          $.each(data, function(key, value){
-            var obj = {};
-            obj[value.contentId] =  value.value;
-            angular.extend(holder,obj);
-          });
-          return holder;
-        };
-
-        $.each($scope.holderData.data, function(key, data){
-          $scope.holderData.data[data.pageId]          = {};
-          $scope.holderData.data[data.pageId].contents = transformData(data.contents);
-        });
-
-        console.log($scope.holderData);
+        // $.each($scope.holderData.data, function(key, data){
+        //   $scope.holderData.data[data.pageId]          = {};
+        //   $scope.holderData.data[data.pageId].contents = transformData(data.contents);
+        // });
       },
       controllerAs: 'vm',
     };
@@ -89,4 +77,49 @@ App
         });
       }
     };
+  })
+  .directive('script', function() {
+    return {
+      restrict: 'E',
+      scope: {script: '='}  ,
+      link: function(scope, elem, attr){
+        if (attr.type === 'text/javascript-lazy') {
+          var code = scope.script;
+          var f = new Function(code);
+          f();
+        }
+      }
+    };
+  })
+  .directive('changeTitle', function($rootScope){
+    return {
+      restrict: 'A',
+      link: function(scope, elem, attr){
+        $rootScope.title = attr.changeTitle;
+      }
+    };
+  })
+  .directive('pikaday', function () {
+    return {
+      restrict: 'C',
+      require: 'ngModel',
+      link: function (scope, element, attr, ngModel) {
+        new Pikaday({
+          field: jQuery(element)[0],
+          format: 'YYYY-MM-DD',
+          onSelect: function() {
+            ngModel.$setViewValue(this.getMoment().format('YYYY-MM-DD'));
+          }
+        });
+      }
+    };
   });
+
+
+  // outside angular for pickaday
+  jQuery(document).on('focus', '.pikaday', function(){
+    new Pikaday({
+      field: jQuery(this)[0],
+      format: 'YYYY-MM-DD'
+    });
+  })

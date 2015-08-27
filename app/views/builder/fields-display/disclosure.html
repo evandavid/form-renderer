@@ -1,0 +1,16 @@
+<h2 ng-if="item.headerText !== ''">{{item.headerText}}</h2>
+
+<div ng-bind-html="item.body"></div>
+
+<a
+  ng-if="item.showDownload"
+  href="{{item.customFile}}">{{item.downloadLabel}}</a>
+<br />
+<a
+  class="ui button blue"
+  ng-if="item.showAcceptance"
+  ng-disabled="item.read"
+  ng-click="item.read = true"
+  ng-class="{disabled: item.read}">{{item.acceptanceLabel}}</a>
+
+<h3 ng-if="item.footerText !== ''">{{panel.footerText}}</h3item

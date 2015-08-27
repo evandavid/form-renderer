@@ -1,3 +1,5 @@
+'use strict';
+
 App
   .directive('builder', function(){
     return {
@@ -15,8 +17,9 @@ App
       restrict: 'A',
       scope: { data: '=validations', builderModel: '=' },
       link: function(scope, elem){
+
         // bind file to ng-model
-        if (scope.data.type === 'file'){
+        if (scope.data && scope.data.type === 'file'){
           elem.bind('change', function(){
             var file              = $(elem).get(0).files[0];
             var transformToBase64 = function(file, callback){
@@ -31,7 +34,7 @@ App
           });
         }
 
-        if (scope.data.validations !== undefined){
+        if (scope.data && scope.data.validations !== undefined){
           $.each(scope.data.validations, function(key, value){
             if (key === 'maxsize' || key === 'minsize' || key === 'mimetype'){
               $(elem).attr('data-parsley-'+key, scope.data.id+'||'+value.rule);
