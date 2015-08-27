@@ -117,9 +117,9 @@ App
 
 
   // outside angular for pickaday
-  jQuery(document).on('focus', '.pikaday', function(){
-    new Pikaday({
-      field: jQuery(this)[0],
-      format: 'YYYY-MM-DD'
-    });
-  })
+  // jQuery(document).on('focus', '.pikaday', function(){
+  //   new Pikaday({
+  //     field: jQuery(this)[0],
+  //     format: 'YYYY-MM-DD'
+  //   });
+  // })

@@ -96,11 +96,11 @@ angular.module('frontendApp')
                 }, {
                   id: UUID.generate(),
                   name: 'dob',
-                  type: 'text',
+                  type: 'date',
                   view: 'edit',
                   headerText: 'Date of birth',
                   footerText: '',
-                  cssClass: 'pikaday',
+                  cssClass: '',
                   value: '',
                 }, {
                   id: UUID.generate(),
