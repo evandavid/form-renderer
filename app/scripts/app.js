@@ -17,7 +17,8 @@ var App = angular
     'ui.router',
     'angular-json-tree',
     'parsley',
-    'checklist-model'
+    'checklist-model',
+    'ngLodash'
   ]);
 
 // App.filter('printjson', function(){

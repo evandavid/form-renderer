@@ -8,7 +8,34 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('DisplayCtrl', function ($scope, UUID) {
+  .controller('DisplayCtrl', function ($scope, UUID, lodash) {
+
+    $scope.next = function(pageId, values){
+      // simulate get next page from server
+      var currentPageIdx = lodash.findIndex($scope.serverData.pages, 'id', pageId);
+      // get next page
+      if ($scope.serverData.pages.length >= (currentPageIdx + 1)) {
+        $scope.page = $scope.serverData.pages[currentPageIdx + 1];
+      }
+
+      console.log(values);
+    };
+
+    $scope.prev = function(pageId, values){
+      // simulate get next page from server
+      var currentPageIdx = lodash.findIndex($scope.serverData.pages, 'id', pageId);
+      // get prev page
+      if ((currentPageIdx - 1) >= 0) {
+        $scope.page = $scope.serverData.pages[currentPageIdx - 1];
+      }
+
+      console.log(values);
+    };
+
+    $scope.submit = function(pageId, values){
+      console.log(values);
+      alert('page submited');
+    };
 
     // simulate server data
     $scope.serverData = {
@@ -53,7 +80,7 @@ angular.module('frontendApp')
           title: 'Page 2',
           cssFile: '',
           showNext: false,
-          showPrevious: false,
+          showPrevious: true,
           showSubmit: true,
           help: '',
           panels: [
@@ -121,7 +148,7 @@ angular.module('frontendApp')
     };
 
     // simulate first page
-    $scope.page = $scope.serverData.pages[1];
+    $scope.page = $scope.serverData.pages[0];
 
 
 

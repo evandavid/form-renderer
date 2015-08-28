@@ -2,10 +2,11 @@ App
   .directive('renderer', function(){
     return {
       restrict: 'A',
-      scope: { data: '='},
+      scope: { data: '=', next: '&', prev: '&', submit: '&'},
       templateUrl: 'views/builder/page.html',
       controller: function($scope){
         console.log($scope.data)
+        var vm = this;
         // transform data to key value pair object
         // var transformData = function(data){
         //   var holder = {};
@@ -17,10 +18,38 @@ App
         //   return holder;
         // };
 
-        // $.each($scope.holderData.data, function(key, data){
-        //   $scope.holderData.data[data.pageId]          = {};
-        //   $scope.holderData.data[data.pageId].contents = transformData(data.contents);
-        // });
+        // native for each are faster than $.each
+        var getValues = function() {
+          var values = [];
+          for (var i = 0; i < $scope.data.panels.length; i++) {
+            var panel = $scope.data.panels[i];
+            for (var i = 0; i < panel.fields.length; i++) {
+              var field = panel.fields[i];
+              var obj = {}
+
+              obj['fieldId'] = field.id;
+              obj['value']   = field.value;
+              if (field.type === 'disclosure'){
+                obj['read']  = field.read;
+              }
+
+              values.push(obj);
+            };
+          };
+          return values;
+        };
+
+        vm.next = function(){
+          $scope.next({pageId: $scope.data.id, values: getValues()});
+        };
+
+        vm.prev = function(){
+          $scope.prev({pageId: $scope.data.id, values: getValues()});
+        };
+
+        vm.submit = function(){
+          $scope.submit({pageId: $scope.data.id, values: getValues()});
+        };
       },
       controllerAs: 'vm',
     };
