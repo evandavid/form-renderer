@@ -107,15 +107,17 @@ App
       }
     };
   })
-  .directive('script', function() {
+  .directive('script', function(UUID) {
     return {
       restrict: 'E',
       scope: {script: '='}  ,
       link: function(scope, elem, attr){
         if (attr.type === 'text/javascript-lazy') {
-          var code = scope.script;
-          var f = new Function(code);
-          f();
+          var scriptTag = angular.element(
+              document.createElement("script"));
+          source = "//@ sourceURL=" + UUID.generate() + "\n" + scope.script;
+          scriptTag.text(scope.script)
+          $("#customJS").append(scriptTag);
         }
       }
     };

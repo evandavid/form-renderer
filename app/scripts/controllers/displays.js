@@ -130,12 +130,42 @@ angular.module('frontendApp')
                   cssClass: '',
                   value: '',
                 }, {
-                  id: UUID.generate(),
+                  id: '1234567812-345678-456768',
                   name: 'sameAsPermanent',
                   type: 'radio',
                   view: 'edit',
                   headerText: 'Address same as permanent',
                   options: ['Yes', 'No'],
+                  rules: 'waitUntilExists("field-1234567812-345678-456768",function(){var field=$("#field-1234567812-345678-456768");console.log(field);waitUntilExists("1234567812-345678-456768-1",function(){field.find("input").each(function(){field.on("click","#"+$(this).attr("id"),function(){var radio=$(this).val();if(radio=="Yes"){$("#panel-12345678").hide();console.log("yes")}else{$("#panel-12345678").show();console.log("no")}})})})});',
+                  footerText: '',
+                  cssClass: '',
+                  value: '',
+                }
+              ]
+            }, {
+              id: '12345678',
+              cssClass: '',
+              headerText: '',
+              footerText: '',
+              visibility: 'hide',
+              fields: [
+                {
+                  id: UUID.generate(),
+                  name: 'city',
+                  type: 'text',
+                  placeholder: 'City',
+                  view: 'edit',
+                  headerText: 'Address',
+                  footerText: '',
+                  cssClass: '',
+                  value: '',
+                }, {
+                  id: UUID.generate(),
+                  name: 'city',
+                  type: 'text',
+                  placeholder: 'ZIP Code',
+                  view: 'edit',
+                  headerText: '',
                   footerText: '',
                   cssClass: '',
                   value: '',
@@ -148,7 +178,7 @@ angular.module('frontendApp')
     };
 
     // simulate first page
-    $scope.page = $scope.serverData.pages[0];
+    $scope.page = $scope.serverData.pages[1];
 
 
 

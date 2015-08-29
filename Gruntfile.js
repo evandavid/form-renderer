@@ -74,7 +74,7 @@ module.exports = function (grunt) {
       },
       local_dependencies: {
         files: {
-          '<%= yeoman.app %>/index.html': ['<%= yeoman.app %>/scripts/**/*.js', '!<%= yeoman.app %>/scripts/libs/*.js'],
+          '<%= yeoman.app %>/index.html': ['<%= yeoman.app %>/scripts/**/*.js'],
         }
       }
     },
